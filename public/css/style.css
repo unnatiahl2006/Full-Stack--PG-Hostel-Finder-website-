@@ -436,7 +436,23 @@ footer {
 .listing-card:hover .listing-img-wrapper::after{
     background: rgba(0,0,0,0.08);
 }
-.badge-boys { background:#e8f0ff !important; color:#2a5bd7  !important; border-color:#b3c8f7  !important; }
+.badge-boys { background:#e8f0ff !important;
+    color:#2a5bd7  !important;
+    border-color:#b3c8f7  !important;
+}
 .badge-girls { background:#fff0f5 !important; color:#d72a6e  !important; border-color:#f7b3cc  !important; }
 .badge-coed { background:#f0f7f4  !important; color:#1a7a5e  !important; border-color:#c3e6da  !important; }
 .badge-room { background:#f5f5f5  !important; color:#555  !important; border-color:#ddd  !important; }
+
+.badge-girls i{
+    font-size: x-small !important;
+}
+.badge-boys i{
+    font-size: x-small !important;
+}
+.badge-coed i{
+    font-size: x-small !important;
+}
+.badge-room i{
+    font-size: xx-small !important;
+}

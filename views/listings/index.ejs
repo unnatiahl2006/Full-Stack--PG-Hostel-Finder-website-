@@ -119,13 +119,13 @@
                 <div class="d-flex gap-1 flex-wrap mt-1">
                   <% if(listing.gender) { %>
                     <% if(listing.gender==='boys' ) { %>
-                      <span class="badge-pg badge-boys"><i class="fa-solid fa-person"></i> Boys</span>
-                      <% } else if(listing.gender==='girls' ) { %>
-                        <span class="badge-pg badge-girls"><i class="fa-solid fa-person-dress"></i> Girls</span>
-                        <% } else { %>
-                          <span class="badge-pg badge-coed"><i class="fa-solid fa-people-group"></i> Co-ed</span>
-                          <% } %>
-                            <% } %>
+                      <span class="badge-pg badge-boys gap-1"><i class="fa-solid fa-person"></i> Boys</span>
+                    <% } else if(listing.gender==='girls' ) { %>
+                        <span class="badge-pg badge-girls gap-1"><i class="fa-solid fa-person-dress"></i> Girls</span>
+                    <% } else { %>
+                      <span class="badge-pg badge-coed gap-1"><i class="fa-solid fa-people-group"></i> Co-ed</span>
+                    <% } %>
+                  <% } %>
                               <% if(listing.roomType) { %>
                                 <span class="badge-pg badge-room">
                                   <i class="fa-solid fa-bed"></i>
