@@ -121,7 +121,7 @@
                     <span class="badge-pg gap-1"><%- listing.gender === 'boys' ? '<i class="fa-solid fa-person"></i> Boys' : listing.gender === 'girls' ? '<i class="fa-solid fa-person-dress"></i> Girls' : '<i class="fa-solid fa-people-group"></i> Co-ed' %></span>
                   <% } %>
                   <% if(listing.roomType) { %>
-                    <span class="badge-pg gap-1"><%= listing.roomType === 'single' ? 'Single' : listing.roomType === 'double' ? 'Double sharing' : 'Triple sharing' %></span>
+                    <span class="badge-pg gap-1"><%- listing.roomType === 'single' ? '<i class="fa-solid fa-bed"></i>Single' : listing.roomType === 'double' ? '<i class="fa-solid fa-bed"></i>Double sharing' : '<i class="fa-solid fa-bed"></i>Triple sharing' %></span>
                   <% } %>
                 </div>
             </div>
