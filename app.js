@@ -86,7 +86,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-    res.send("working");
+    res.render("/listings");
 });
 app.use((req, res, next) => {
     console.log(req.method, req.path);
