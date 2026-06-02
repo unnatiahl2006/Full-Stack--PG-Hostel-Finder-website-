@@ -445,14 +445,14 @@ footer {
 .badge-room { background:#f5f5f5  !important; color:#555  !important; border-color:#ddd  !important; }
 
 .badge-girls i{
-    font-size: x-small !important;
+    font-size: medium !important;
 }
 .badge-boys i{
-    font-size: x-small !important;
+    font-size: medium !important;
 }
 .badge-coed i{
-    font-size: x-small !important;
+    font-size: medium !important;
 }
 .badge-room i{
-    font-size: xx-small !important;
+    font-size: small !important;
 }
