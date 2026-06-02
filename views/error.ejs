@@ -1,0 +1,14 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="row justify-content-center mt-5">
+    <div class="col-12 col-md-6 text-center">
+        <div class="error-container p-5">
+            <i class="fa-solid fa-triangle-exclamation error-icon"></i>
+            <h1 class="error-code">Oops!</h1>
+            <p class="error-message"><%= err.message %></p>
+            <a href="/listings" class="btn btn-add mt-3">
+                <i class="fa-solid fa-arrow-left"></i> Go Back to Listings
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,92 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="row justify-content-center mt-4">
+    <div class="col-12 col-md-8 col-lg-6">
+        <div class="form-card p-4">
+            <h2 class="form-heading mb-4">Edit Listing</h2>
+            <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" class="needs-validation" novalidate enctype="multipart/form-data">
+
+                <div class="mb-3">
+                    <label class="form-label">Title</label>
+                    <input name="listing[title]" placeholder="Enter PG title" type="text" class="form-control" value="<%= listing.title %>" required>
+                    <div class="invalid-feedback">Please choose a title.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea name="listing[description]" placeholder="Describe your PG" class="form-control" rows="4" required><%= listing.description %></textarea>
+                    <div class="invalid-feedback">Please choose a description.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Current Images</label><br>
+                    <div class="row g-2">
+                        <% if (listing.images && listing.images.length> 0) { %>
+                            <% listing.images.forEach(img=> { %>
+                                <div class="col-md-3">
+                                    <img src="<%= img.url %>" class="img-fluid rounded" style="height:120px; width:100%; object-fit:cover;">
+                                </div>
+                                <% }) %>
+                                    <% } %>
+                    </div>
+                    <label class="form-label mt-2">Upload New Image <span class="text-muted small">(optional)</span></label>
+                    <input name="images" type="file" class="form-control" accept="image/*" multiple>
+                    <div class="form-text">Leave empty to keep current image.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Price per month (₹)</label>
+                    <input name="listing[price]" placeholder="Enter price" type="number" required min="0" class="form-control" value="<%= listing.price %>">
+                    <div class="invalid-feedback">Please choose a price.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Location</label>
+                    <input name="listing[location]" placeholder="Enter location" type="text" class="form-control" value="<%= listing.location %>" required>
+                    <div class="invalid-feedback">Please choose a location.</div>
+                </div>
+
+                <!-- Gender -->
+                <div class="mb-3">
+                    <label class="form-label">PG For</label>
+                    <select name="listing[gender]" class="form-select">
+                        <option value="boys" <%= listing.gender === 'boys' ? 'selected' : '' %>>Boys only</option>
+                        <option value="girls" <%= listing.gender === 'girls' ? 'selected' : '' %>>Girls only</option>
+                        <option value="coed" <%= listing.gender === 'coed' ? 'selected' : '' %>>Co-ed (Boys & Girls)</option>
+                    </select>
+                </div>
+
+                <!-- Room Type -->
+                <div class="mb-3">
+                    <label class="form-label">Room Type</label>
+                    <select name="listing[roomType]" class="form-select">
+                        <option value="single" <%= listing.roomType === 'single' ? 'selected' : '' %>>Single occupancy</option>
+                        <option value="double" <%= listing.roomType === 'double' ? 'selected' : '' %>>Double sharing</option>
+                        <option value="triple" <%= listing.roomType === 'triple' ? 'selected' : '' %>>Triple sharing</option>
+                    </select>
+                </div>
+
+                <!-- Amenities -->
+                <div class="mb-3">
+                    <label class="form-label">Amenities</label>
+                    <div class="d-flex flex-wrap gap-2 mt-1">
+                        <% [['wifi','<i class="fa-solid fa-wifi"></i> WiFi'], ['meals','<i class="fa-solid fa-utensils"></i> Meals'], ['ac','<i class="fa-solid fa-snowflake"></i> AC'], ['parking','<i class="fa-solid fa-car"></i> Parking'], ['laundry','<i class="fa-solid fa-shirt"></i> Laundry'], ['tv','<i class="fa-solid fa-tv"></i> TV']].forEach(function(a) { %>
+                            <label class="amenity-chip <%= listing.amenities && listing.amenities.includes(a[0]) ? 'selected' : '' %>">
+                                <input type="checkbox" name="listing[amenities]" value="<%= a[0] %>"
+                                    <%= listing.amenities && listing.amenities.includes(a[0]) ? 'checked' : '' %>
+                                    style="display:none;">
+                                <%- a[1] %>
+                            </label>
+                        <% }) %>
+                    </div>
+                </div>
+
+                <div class="d-flex gap-2 mt-2">
+                    <button type="submit" class="btn btn-add w-100">Save Changes</button>
+                    <a href="/listings/<%= listing._id %>" class="btn btn-cancel w-100">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

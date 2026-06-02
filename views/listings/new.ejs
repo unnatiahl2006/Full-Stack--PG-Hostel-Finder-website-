@@ -1,0 +1,91 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="row justify-content-center mt-4">
+    <div class="col-12 col-md-8 col-lg-6">
+        <div class="form-card p-4">
+            <h2 class="form-heading mb-4">Add New Listing</h2>
+            <form method="post" action="/listings" class="needs-validation" novalidate enctype="multipart/form-data">
+
+                <div class="mb-3">
+                    <label class="form-label">Title</label>
+                    <input name="listing[title]" placeholder="Enter PG title" type="text" class="form-control" required>
+                    <div class="invalid-feedback">Please choose a title.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea name="listing[description]" placeholder="Describe your PG" class="form-control" rows="4" required></textarea>
+                    <div class="invalid-feedback">Please choose a valid description.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Upload Image</label>
+                    <input name="images" type="file" class="form-control" accept="image/*" multiple>
+                    <div class="form-text">JPG, PNG, WEBP supported. Leave empty to use default image.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Price per month (₹)</label>
+                    <input name="listing[price]" placeholder="Enter price" type="number" required min="0" class="form-control">
+                    <div class="invalid-feedback">Please choose a price.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Location</label>
+                    <input name="listing[location]" placeholder="Enter location" type="text" class="form-control" required>
+                    <div class="invalid-feedback">Please choose a location.</div>
+                </div>
+
+                <!-- Gender -->
+                <div class="mb-3">
+                    <label class="form-label">PG For</label>
+                    <select name="listing[gender]" class="form-select" required>
+                        <option value="">Select type</option>
+                        <option value="boys">Boys only</option>
+                        <option value="girls">Girls only</option>
+                        <option value="coed">Co-ed (Boys & Girls)</option>
+                    </select>
+                </div>
+
+                <!-- Room Type -->
+                <div class="mb-3">
+                    <label class="form-label">Room Type</label>
+                    <select name="listing[roomType]" class="form-select" required>
+                        <option value="">Select room type</option>
+                        <option value="single">Single occupancy</option>
+                        <option value="double">Double sharing</option>
+                        <option value="triple">Triple sharing</option>
+                    </select>
+                </div>
+
+                <!-- Amenities -->
+                <div class="mb-3">
+                    <label class="form-label">Amenities</label>
+                    <div class="d-flex flex-wrap gap-2 mt-1">
+                        <label class="amenity-chip">
+                            <input type="checkbox" name="listing[amenities]" value="wifi" style="display:none;"> <i class="fa-solid fa-wifi"></i> WiFi
+                        </label>
+                        <label class="amenity-chip">
+                            <input type="checkbox" name="listing[amenities]" value="meals" style="display:none;"> <i class="fa-solid fa-utensils"></i> Meals
+                        </label>
+                        <label class="amenity-chip">
+                            <input type="checkbox" name="listing[amenities]" value="ac" style="display:none;"> <i class="fa-solid fa-snowflake"></i> AC
+                        </label>
+                        <label class="amenity-chip">
+                            <input type="checkbox" name="listing[amenities]" value="parking" style="display:none;"> <i class="fa-solid fa-car"></i> Parking
+                        </label>
+                        <label class="amenity-chip">
+                            <input type="checkbox" name="listing[amenities]", value="laundry" style="display:none;"> <i class="fa-solid fa-shirt"></i> Laundry
+                        </label>
+                        <label class="amenity-chip">
+                            <input type="checkbox" name="listing[amenities]" value="tv" style="display:none;"> <i class="fa-solid fa-tv"></i> TV
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-add w-100 mt-2">Create Listing</button>
+            </form>
+        </div>
+    </div>
+</div>
+

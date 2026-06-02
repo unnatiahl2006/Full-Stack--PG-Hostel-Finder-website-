@@ -1,0 +1,135 @@
+<% layout("/layouts/boilerplate") %>
+
+<!-- Filter Bar -->
+<form action="/listings" method="GET" id="filterForm">
+  <!-- search value hidden rakhein -->
+  <% if(search) { %>
+    <input type="hidden" name="search" value="<%= search %>">
+  <% } %>
+
+  <div class="filter-bar d-flex gap-2 align-items-center py-2 px-1 border-bottom mb-4 flex-wrap">
+
+    <!-- Budget Filter -->
+    <div class="dropdown">
+      <button class="filter-btn btn dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+        <i class="fa-solid fa-indian-rupee-sign"></i> Budget
+        <% if(maxPrice) { %><span class="filter-active-dot"></span><% } %>
+      </button>
+      <div class="dropdown-menu p-3" style="min-width:280px;">
+        <p class="filter-label">Max budget per month</p>
+        <div class="d-flex align-items-center gap-2">
+          <span class="text-muted small">₹0</span>
+          <input type="range" name="maxPrice" min="0" max="50000" step="1000"
+            value="<%= maxPrice || 50000 %>"
+            class="form-range flex-fill"
+            oninput="document.getElementById('priceOut').textContent = '₹' + Number(this.value).toLocaleString('en-IN')">
+          <span class="text-muted small">₹50k</span>
+        </div>
+        <p class="text-center fw-500 mt-1" id="priceOut">
+          ₹<%= Number(maxPrice || 50000).toLocaleString('en-IN') %>
+        </p>
+        <button type="submit" class="btn btn-add btn-sm w-100 mt-2">Apply</button>
+      </div>
+    </div>
+
+    <!-- Gender Filter -->
+    <div class="dropdown">
+      <button class="filter-btn btn dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+        <i class="fa-solid fa-user-group"></i> Gender
+        <% if(gender) { %><span class="filter-active-dot"></span><% } %>
+      </button>
+      <div class="dropdown-menu p-3" style="min-width:180px;">
+        <p class="filter-label">PG type</p>
+        <div class="d-flex flex-column gap-2">
+          <label class="filter-radio"><input type="radio" name="gender" value="" <%= !gender ? 'checked' : '' %>> Any</label>
+          <label class="filter-radio"><input type="radio" name="gender" value="boys" <%= gender === 'boys' ? 'checked' : '' %>> Boys only</label>
+          <label class="filter-radio"><input type="radio" name="gender" value="girls" <%= gender === 'girls' ? 'checked' : '' %>> Girls only</label>
+          <label class="filter-radio"><input type="radio" name="gender" value="coed" <%= gender === 'coed' ? 'checked' : '' %>> Co-ed</label>
+        </div>
+        <button type="submit" class="btn btn-add btn-sm w-100 mt-3">Apply</button>
+      </div>
+    </div>
+
+    <!-- Room Type Filter -->
+    <div class="dropdown">
+      <button class="filter-btn btn dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+        <i class="fa-solid fa-bed"></i> Room type
+        <% if(roomType) { %><span class="filter-active-dot"></span><% } %>
+      </button>
+      <div class="dropdown-menu p-3" style="min-width:180px;">
+        <p class="filter-label">Sharing type</p>
+        <div class="d-flex flex-column gap-2">
+          <label class="filter-radio"><input type="radio" name="roomType" value="" <%= !roomType ? 'checked' : '' %>> Any</label>
+          <label class="filter-radio"><input type="radio" name="roomType" value="single" <%= roomType === 'single' ? 'checked' : '' %>> Single</label>
+          <label class="filter-radio"><input type="radio" name="roomType" value="double" <%= roomType === 'double' ? 'checked' : '' %>> Double sharing</label>
+          <label class="filter-radio"><input type="radio" name="roomType" value="triple" <%= roomType === 'triple' ? 'checked' : '' %>> Triple sharing</label>
+        </div>
+        <button type="submit" class="btn btn-add btn-sm w-100 mt-3">Apply</button>
+      </div>
+    </div>
+
+    <!-- Amenities Filter -->
+    <div class="dropdown">
+      <button class="filter-btn btn dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+        <i class="fa-solid fa-star"></i> Amenities
+        <% if(amenities && amenities.length > 0) { %><span class="filter-active-dot"></span><% } %>
+      </button>
+      <div class="dropdown-menu p-3" style="min-width:240px;">
+        <p class="filter-label">Select amenities</p>
+        <div class="d-flex flex-wrap gap-2">
+          <% ['wifi','meals','ac','parking','laundry','tv'].forEach(function(a) { %>
+            <label class="amenity-chip <%= amenities && amenities.includes(a) ? 'selected' : '' %>">
+              <input type="checkbox" name="amenities" value="<%= a %>" <%= amenities && amenities.includes(a) ? 'checked' : '' %> style="display:none;">
+              <%- a === 'wifi' ? '<i class="fa-solid fa-wifi"></i> WiFi' : a === 'meals' ? '<i class="fa-solid fa-utensils"></i> Meals' : a === 'ac' ? '<i class="fa-solid fa-snowflake"></i> AC' : a === 'parking' ? '<i class="fa-solid fa-car"></i> Parking' : a === 'laundry' ? '<i class="fa-solid fa-shirt"></i> Laundry' : '<i class="fa-solid fa-tv"></i> TV' %>
+            </label>
+          <% }) %>
+        </div>
+        <button type="submit" class="btn btn-add btn-sm w-100 mt-3">Apply</button>
+      </div>
+    </div>
+
+    <!-- Reset -->
+    <% if(gender || roomType || maxPrice || (amenities && amenities.length > 0)) { %>
+      <a href="/listings" class="btn btn-sm text-muted">✕ Reset filters</a>
+    <% } %>
+
+  </div>
+</form>
+
+<!-- Listings Grid -->
+<% if(allListings.length === 0) { %>
+  <div class="text-center py-5">
+    <i class="fa-solid fa-magnifying-glass fa-2x text-muted mb-3"></i>
+    <p class="text-muted">No listings found. Try changing filters.</p>
+    <a href="/listings" class="btn btn-add">Clear filters</a>
+  </div>
+<% } else { %>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 listings-container">
+    <% for(let listing of allListings){ %>
+    <div class="col">
+        <div class="card listing-card h-100">
+            <div class="listing-img-wrapper">
+                <img src="<%= listing.images && listing.images.length > 0 ? listing.images[0].url : 'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=800' %>"
+                    class="card-img-top listing-img" alt="<%= listing.title %>">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"><%= listing.title %></h5>
+                <p class="card-text text-muted"><%= listing.location %></p>
+                <p class="card-text price">₹<%= listing.price.toLocaleString("en-IN") %>/month</p>
+                <div class="d-flex gap-1 flex-wrap mt-1">
+                  <% if(listing.gender) { %>
+                    <span class="badge-pg gap-1"><%- listing.gender === 'boys' ? '<i class="fa-solid fa-person"></i> Boys' : listing.gender === 'girls' ? '<i class="fa-solid fa-person-dress"></i> Girls' : '<i class="fa-solid fa-people-group"></i> Co-ed' %></span>
+                  <% } %>
+                  <% if(listing.roomType) { %>
+                    <span class="badge-pg gap-1"><%= listing.roomType === 'single' ? 'Single' : listing.roomType === 'double' ? 'Double sharing' : 'Triple sharing' %></span>
+                  <% } %>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a href="/listings/<%= listing._id %>" class="btn btn-view w-100">View Details</a>
+            </div>
+        </div>
+    </div>
+    <% } %>
+  </div>
+<% } %>
