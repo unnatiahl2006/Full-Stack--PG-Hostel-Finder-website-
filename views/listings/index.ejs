@@ -118,11 +118,20 @@
                 <p class="card-text price">₹<%= listing.price.toLocaleString("en-IN") %>/month</p>
                 <div class="d-flex gap-1 flex-wrap mt-1">
                   <% if(listing.gender) { %>
-                    <span class="badge-pg gap-1"><%- listing.gender === 'boys' ? '<i class="fa-solid fa-person"></i> Boys' : listing.gender === 'girls' ? '<i class="fa-solid fa-person-dress"></i> Girls' : '<i class="fa-solid fa-people-group"></i> Co-ed' %></span>
-                  <% } %>
-                  <% if(listing.roomType) { %>
-                    <span class="badge-pg roomType"><%- listing.roomType === 'single' ? '<i class="fa-solid fa-bed"></i>Single' : listing.roomType === 'double' ? '<i class="fa-solid fa-bed"></i>Double sharing' : '<i class="fa-solid fa-bed"></i>Triple sharing' %></span>
-                  <% } %>
+                    <% if(listing.gender==='boys' ) { %>
+                      <span class="badge-pg badge-boys"><i class="fa-solid fa-person"></i> Boys</span>
+                      <% } else if(listing.gender==='girls' ) { %>
+                        <span class="badge-pg badge-girls"><i class="fa-solid fa-person-dress"></i> Girls</span>
+                        <% } else { %>
+                          <span class="badge-pg badge-coed"><i class="fa-solid fa-people-group"></i> Co-ed</span>
+                          <% } %>
+                            <% } %>
+                              <% if(listing.roomType) { %>
+                                <span class="badge-pg badge-room">
+                                  <i class="fa-solid fa-bed"></i>
+                                  <%= listing.roomType==='single' ? 'Single' : listing.roomType==='double' ? 'Double' : 'Triple' %>
+                                </span>
+                                <% } %>
                 </div>
             </div>
             <div class="card-footer">

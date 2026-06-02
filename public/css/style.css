@@ -433,9 +433,10 @@ footer {
     background: rgba(0,0,0,0);
     transition: background 0.3s ease;
 }
-.roomType i {
-  font-size: 10px;
-}
 .listing-card:hover .listing-img-wrapper::after{
     background: rgba(0,0,0,0.08);
 }
+.badge-boys { background:#e8f0ff; color:#2a5bd7; border-color:#b3c8f7; }
+.badge-girls { background:#fff0f5; color:#d72a6e; border-color:#f7b3cc; }
+.badge-coed { background:#f0f7f4; color:#1a7a5e; border-color:#c3e6da; }
+.badge-room { background:#f5f5f5; color:#555; border-color:#ddd; }
