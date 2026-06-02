@@ -31,6 +31,10 @@ const listingSchema = new Schema({
         type: [String],  // ["wifi", "meals", "ac", "parking", "laundry", "tv"]
         default: [],
     },
+    contactInfo: {
+    type: String,
+    required: true,
+    },
     geometry: {
         type: {
             type: String,

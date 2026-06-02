@@ -80,6 +80,15 @@
                         <% }) %>
                     </div>
                 </div>
+                <!-- Contact Info -->
+                <div class="mb-3">
+                    <label class="form-label">Contact Number</label>
+                    <input name="listing[contactInfo]" placeholder="Enter your 10-digit mobile number" type="tel" class="form-control"
+                        required pattern="[0-9]{10}" maxlength="10" value="<%= listing.contactInfo || '' %>">
+                    <div class="invalid-feedback">Please enter a valid 10-digit number.</div>
+                </div>
+
+
 
                 <div class="d-flex gap-2 mt-2">
                     <button type="submit" class="btn btn-add w-100">Save Changes</button>
