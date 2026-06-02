@@ -433,7 +433,9 @@ footer {
     background: rgba(0,0,0,0);
     transition: background 0.3s ease;
 }
-
+.roomType i {
+  font-size: 10px;
+}
 .listing-card:hover .listing-img-wrapper::after{
     background: rgba(0,0,0,0.08);
 }
