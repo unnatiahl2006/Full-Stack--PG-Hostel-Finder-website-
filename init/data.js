@@ -5,6 +5,7 @@ const sampleListings = [
     images: [{ filename: "listingimage", url: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=60" }],
     price: 8000, location: "Connaught Place", country: "India",
     gender: "coed", roomType: "double", amenities: ["wifi", "meals", "laundry"],
+    contactInfo: "9811001001",
   },
   {
     title: "Girls PG in South Delhi",
@@ -12,6 +13,7 @@ const sampleListings = [
     images: [{ filename: "listingimage", url: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=60" }],
     price: 10000, location: "Hauz Khas", country: "India",
     gender: "girls", roomType: "single", amenities: ["meals", "wifi"],
+    contactInfo: "9811002002",
   },
   {
     title: "Spacious PG for Boys in Laxmi Nagar",
@@ -19,6 +21,7 @@ const sampleListings = [
     images: [{ filename: "listingimage", url: "https://images.unsplash.com/photo-1586105251261-72a756497a11?auto=format&fit=crop&w=800&q=60" }],
     price: 6500, location: "Laxmi Nagar", country: "India",
     gender: "boys", roomType: "double", amenities: ["wifi"],
+    contactInfo: "9811003003",
   },
   {
     title: "Premium Co-living Space in Dwarka",
@@ -26,6 +29,7 @@ const sampleListings = [
     images: [{ filename: "listingimage", url: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=60" }],
     price: 15000, location: "Dwarka", country: "India",
     gender: "coed", roomType: "single", amenities: ["wifi", "ac", "laundry"],
+    contactInfo: "9811004004",
   },
   {
     title: "Student PG Near Delhi University",
@@ -33,6 +37,7 @@ const sampleListings = [
     images: [{ filename: "listingimage", url: "https://images.unsplash.com/photo-1543269664-56d93c1b41a6?auto=format&fit=crop&w=800&q=60" }],
     price: 7000, location: "North Campus", country: "India",
     gender: "coed", roomType: "triple", amenities: ["meals", "laundry", "wifi"],
+    contactInfo: "9811005005",
   },
   {
     title: "Cozy PG in Noida Extension",
@@ -40,6 +45,7 @@ const sampleListings = [
     images: [{ filename: "listingimage", url: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=60" }],
     price: 7500, location: "Noida Extension", country: "India",
     gender: "coed", roomType: "double", amenities: ["wifi", "meals"],
+    contactInfo: "9811006006",
   },
   {
     title: "Luxury PG in Vasant Kunj",
@@ -47,6 +53,7 @@ const sampleListings = [
     images: [{ filename: "listingimage", url: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=60" }],
     price: 18000, location: "Vasant Kunj", country: "India",
     gender: "coed", roomType: "single", amenities: ["ac", "meals", "wifi", "tv", "laundry"],
+    contactInfo: "9811007007",
   },
   {
     title: "Working Women's Hostel in Saket",
@@ -54,6 +61,7 @@ const sampleListings = [
     images: [{ filename: "listingimage", url: "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=800&q=60" }],
     price: 12000, location: "Saket", country: "India",
     gender: "girls", roomType: "single", amenities: ["meals", "wifi", "laundry"],
+    contactInfo: "9811008008",
   },
   {
     title: "Budget PG in Uttam Nagar",
@@ -61,6 +69,7 @@ const sampleListings = [
     images: [{ filename: "listingimage", url: "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=800&q=60" }],
     price: 5500, location: "Uttam Nagar", country: "India",
     gender: "boys", roomType: "triple", amenities: ["wifi"],
+    contactInfo: "9811009009",
   },
   {
     title: "Fully Furnished PG in Rohini",
@@ -68,6 +77,7 @@ const sampleListings = [
     images: [{ filename: "listingimage", url: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=800&q=60" }],
     price: 9000, location: "Rohini", country: "India",
     gender: "coed", roomType: "single", amenities: ["ac", "wifi", "meals"],
+    contactInfo: "9811010010",
   },
   {
     title: "PG for IT Professionals in Gurugram",
@@ -75,6 +85,7 @@ const sampleListings = [
     images: [{ filename: "listingimage", url: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=60" }],
     price: 14000, location: "Cyber City, Gurugram", country: "India",
     gender: "coed", roomType: "single", amenities: ["ac", "wifi", "parking"],
+    contactInfo: "9811011011",
   },
   {
     title: "Homely PG in Pitampura",
@@ -82,6 +93,7 @@ const sampleListings = [
     images: [{ filename: "listingimage", url: "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=800&q=60" }],
     price: 8500, location: "Pitampura", country: "India",
     gender: "coed", roomType: "double", amenities: ["meals", "wifi"],
+    contactInfo: "9811012012",
   },
   {
     title: "Co-ed PG in Karol Bagh",
@@ -89,6 +101,7 @@ const sampleListings = [
     images: [{ filename: "listingimage", url: "https://images.unsplash.com/photo-1536376072261-38c75010e6c9?auto=format&fit=crop&w=800&q=60" }],
     price: 9500, location: "Karol Bagh", country: "India",
     gender: "coed", roomType: "double", amenities: ["wifi", "meals"],
+    contactInfo: "9811013013",
   },
   {
     title: "Premium Girls PG in Greater Kailash",
@@ -96,6 +109,7 @@ const sampleListings = [
     images: [{ filename: "listingimage", url: "https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=800&q=60" }],
     price: 16000, location: "Greater Kailash", country: "India",
     gender: "girls", roomType: "single", amenities: ["meals", "ac", "wifi", "laundry"],
+    contactInfo: "9811014014",
   },
   {
     title: "Boys PG Near Shahdara Metro",
@@ -103,6 +117,7 @@ const sampleListings = [
     images: [{ filename: "listingimage", url: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=800&q=60" }],
     price: 6000, location: "Shahdara", country: "India",
     gender: "boys", roomType: "triple", amenities: ["wifi", "tv"],
+    contactInfo: "9811015015",
   },
   {
     title: "Elegant PG in Nehru Place",
@@ -110,6 +125,7 @@ const sampleListings = [
     images: [{ filename: "listingimage", url: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=60" }],
     price: 13000, location: "Nehru Place", country: "India",
     gender: "coed", roomType: "single", amenities: ["meals", "laundry", "wifi", "ac"],
+    contactInfo: "9811016016",
   },
   {
     title: "Compact PG in Janakpuri",
@@ -117,6 +133,7 @@ const sampleListings = [
     images: [{ filename: "listingimage", url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=60" }],
     price: 7200, location: "Janakpuri", country: "India",
     gender: "coed", roomType: "double", amenities: ["wifi"],
+    contactInfo: "9811017017",
   },
   {
     title: "Deluxe PG in Malviya Nagar",
@@ -124,6 +141,7 @@ const sampleListings = [
     images: [{ filename: "listingimage", url: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=60" }],
     price: 14500, location: "Malviya Nagar", country: "India",
     gender: "coed", roomType: "single", amenities: ["ac", "wifi", "tv", "laundry"],
+    contactInfo: "9811018018",
   },
   {
     title: "PG with Rooftop in Mukherjee Nagar",
@@ -131,6 +149,7 @@ const sampleListings = [
     images: [{ filename: "listingimage", url: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=800&q=60" }],
     price: 8000, location: "Mukherjee Nagar", country: "India",
     gender: "coed", roomType: "double", amenities: ["wifi", "meals"],
+    contactInfo: "9811019019",
   },
   {
     title: "Hostel-style PG in Patel Nagar",
@@ -138,6 +157,7 @@ const sampleListings = [
     images: [{ filename: "listingimage", url: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=60" }],
     price: 7800, location: "Patel Nagar", country: "India",
     gender: "coed", roomType: "triple", amenities: ["meals", "wifi"],
+    contactInfo: "9811020020",
   },
   {
     title: "Single Room PG in Mayur Vihar",
@@ -145,6 +165,7 @@ const sampleListings = [
     images: [{ filename: "listingimage", url: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800&q=60" }],
     price: 11000, location: "Mayur Vihar", country: "India",
     gender: "coed", roomType: "single", amenities: ["ac", "wifi", "parking"],
+    contactInfo: "9811021021",
   },
   {
     title: "Girls PG in Lajpat Nagar",
@@ -152,6 +173,7 @@ const sampleListings = [
     images: [{ filename: "listingimage", url: "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=800&q=60" }],
     price: 11500, location: "Lajpat Nagar", country: "India",
     gender: "girls", roomType: "double", amenities: ["meals", "wifi", "laundry"],
+    contactInfo: "9811022022",
   },
   {
     title: "Modern PG in Faridabad",
@@ -159,6 +181,7 @@ const sampleListings = [
     images: [{ filename: "listingimage", url: "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?auto=format&fit=crop&w=800&q=60" }],
     price: 7000, location: "Faridabad", country: "India",
     gender: "boys", roomType: "double", amenities: ["meals", "parking", "wifi"],
+    contactInfo: "9811023023",
   },
   {
     title: "Shared PG in Vikaspuri",
@@ -166,6 +189,7 @@ const sampleListings = [
     images: [{ filename: "listingimage", url: "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&w=800&q=60" }],
     price: 6800, location: "Vikaspuri", country: "India",
     gender: "coed", roomType: "double", amenities: ["wifi"],
+    contactInfo: "9811024024",
   },
   {
     title: "Executive PG in Jasola",
@@ -173,6 +197,7 @@ const sampleListings = [
     images: [{ filename: "listingimage", url: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=60" }],
     price: 16500, location: "Jasola", country: "India",
     gender: "coed", roomType: "single", amenities: ["ac", "meals", "wifi", "parking", "laundry"],
+    contactInfo: "9811025025",
   },
 ];
 
