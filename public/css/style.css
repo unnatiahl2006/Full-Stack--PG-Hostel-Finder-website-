@@ -324,6 +324,9 @@ footer {
     font-size: 0.85rem;
     padding: 6px 14px;
     position: relative;
+    display: flex !important;        /* ✅ add */
+    align-items: center !important;  /* ✅ add */
+    gap: 6px !important; 
 }
  
 .filter-btn:hover {
