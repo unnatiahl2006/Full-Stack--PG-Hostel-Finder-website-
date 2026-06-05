@@ -7,10 +7,14 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
+    savedListings: [       
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Listing",
+        }
+    ],
 });
 
-// username aur password automatically add ho jaate hain
-// passportLocalMongoose ki wajah se
 userSchema.plugin(passportLocalMongoose);
 
 const User = mongoose.model("User", userSchema);

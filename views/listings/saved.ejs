@@ -1,0 +1,54 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="mt-4 mb-5">
+    <h2 class="listings-heading"><i class="fa-solid fa-heart" style="color:#e63946;"></i> Saved Listings</h2>
+
+    <% if(savedListings.length === 0) { %>
+        <div class="text-center py-5">
+            <i class="fa-regular fa-heart fa-3x text-muted mb-3"></i>
+            <p class="text-muted">No saved listings yet.</p>
+            <a href="/listings" class="btn btn-add">Explore Listings</a>
+        </div>
+    <% } else { %>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 listings-container">
+            <% for(let listing of savedListings){ %>
+            <div class="col">
+                <div class="card listing-card h-100">
+                    <div class="listing-img-wrapper">
+                        <img src="<%= listing.images && listing.images.length > 0 ? listing.images[0].url : 'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=800' %>"
+                            class="card-img-top listing-img" alt="<%= listing.title %>">
+                        <button class="like-btn" data-id="<%= listing._id %>" data-liked="true">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"><%= listing.title %></h5>
+                        <p class="card-text text-muted"><%= listing.location %></p>
+                        <p class="card-text price">₹<%= listing.price.toLocaleString("en-IN") %>/month</p>
+                        <div class="d-flex gap-1 flex-wrap mt-1">
+                          <% if(listing.gender) { %>
+                            <% if(listing.gender==='boys') { %>
+                              <span class="badge-pg badge-boys gap-1"><i class="fa-solid fa-person"></i> Boys</span>
+                            <% } else if(listing.gender==='girls') { %>
+                              <span class="badge-pg badge-girls gap-1"><i class="fa-solid fa-person-dress"></i> Girls</span>
+                            <% } else { %>
+                              <span class="badge-pg badge-coed gap-1"><i class="fa-solid fa-people-group"></i> Co-ed</span>
+                            <% } %>
+                          <% } %>
+                          <% if(listing.roomType) { %>
+                            <span class="badge-pg badge-room gap-1">
+                              <i class="fa-solid fa-bed"></i>
+                              <%= listing.roomType==='single' ? 'Single' : listing.roomType==='double' ? 'Double' : 'Triple' %>
+                            </span>
+                          <% } %>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="/listings/<%= listing._id %>" class="btn btn-view w-100">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    <% } %>
+</div>

@@ -5,7 +5,7 @@ const ExpressError = require("../utils/ExpressError.js");
 const { listingSchema } = require("../schema.js");
 const { isLoggedIn, isOwner } = require("../middleware.js");
 const listingController = require("../controllers/listing.js");
-const { upload } = require("../Cloudstorage.js"); 
+const { upload } = require("../Cloudstorage.js");
 
 const validateListing = (req, res, next) => {
     let { error } = listingSchema.validate(req.body);
@@ -17,11 +17,17 @@ const validateListing = (req, res, next) => {
     }
 };
 
+// Saved listings page
+router.get("/saved", isLoggedIn, wrapAsync(listingController.savedListings));
+
 router.route("/")
     .get(wrapAsync(listingController.index))
     .post(isLoggedIn, upload.array("images", 5), wrapAsync(listingController.createListing));
 
 router.get("/new", isLoggedIn, listingController.renderNewForm);
+
+// Like toggle
+router.post("/:id/like", isLoggedIn, wrapAsync(listingController.toggleLike));
 
 router.route("/:id")
     .get(wrapAsync(listingController.showListing))

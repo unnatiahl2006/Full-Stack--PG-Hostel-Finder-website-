@@ -13,19 +13,13 @@
       <!-- Left links -->
       <ul class="navbar-nav me-3">
         <li class="nav-item"><a class="nav-link" href="/listings">Explore</a></li>
-        
       </ul>
 
       <!-- Search bar -->
       <form action="/listings" method="GET" class="d-flex align-items-center me-auto" role="search">
         <div class="input-group">
-          <input
-            type="text"
-            name="search"
-            class="form-control"
-            placeholder="Search by city/name..."
-            value="<%= typeof search !== 'undefined' ? search : '' %>"
-            style="min-width: 400px;">
+          <input type="text" name="search" class="form-control" placeholder="Search by city/name..."
+            value="<%= typeof search !== 'undefined' ? search : '' %>" style="min-width: 400px;">
           <button class="btn btn-outline-secondary" type="submit">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
@@ -34,8 +28,13 @@
 
       <!-- Right auth links -->
       <ul class="navbar-nav ms-3 align-items-center gap-2">
-        <li class="nav-item" ><a class="nav-link"  href="/listings/new">Add your own Listing</a></li>
+        <li class="nav-item"><a class="nav-link" href="/listings/new">Add your own Listing</a></li>
         <% if (currentUser) { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/listings/saved">
+              <i class="fa-solid fa-heart" style="color:#e63946;"></i> Saved
+            </a>
+          </li>
           <li class="nav-item">
             <span class="nav-link text-muted">
               <i class="fa-solid fa-user"></i> <%= currentUser.username %>
@@ -57,3 +56,4 @@
     </div>
   </div>
 </nav>
+
